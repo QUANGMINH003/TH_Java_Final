@@ -8,7 +8,7 @@
 <body>
 <th:block th:replace="layout::header"></th:block>
 <div class="container">
-    <h1>Add Book</h1>
+    <h1>Edit Book</h1>
     <form th:action="@{/categories/edit/{id}(id=${category.id})}"
           th:object="${category}" method="post">
         <div class="col-6 mb-3">
