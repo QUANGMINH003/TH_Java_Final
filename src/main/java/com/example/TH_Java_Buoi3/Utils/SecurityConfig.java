@@ -39,7 +39,7 @@ public class SecurityConfig {
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers( "/css/**", "/js/**", "/", "/register", "/error")
                         .permitAll()
-                        .requestMatchers( "/books/edit", "/books/delete")
+                        .requestMatchers( "/books/edit", "/books/delete", "/categories/edit", "/categories/delete")
                         .hasAnyAuthority("ADMIN")
                         .requestMatchers("/books", "/books/add")
                         .hasAnyAuthority("ADMIN","USER")
