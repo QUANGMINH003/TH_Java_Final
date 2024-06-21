@@ -40,9 +40,9 @@ public class SecurityConfig {
                         .requestMatchers( "/css/**", "/js/**", "/", "/register", "/error")
                         .permitAll()
                         .requestMatchers( "/books/edit", "/books/delete")
-                        .authenticated()
+                        .hasAnyAuthority("ADMIN")
                         .requestMatchers("/books", "/books/add")
-                        .authenticated()
+                        .hasAnyAuthority("ADMIN","USER")
                         .anyRequest().authenticated()
                 )
 
@@ -56,7 +56,7 @@ public class SecurityConfig {
 
                 .formLogin(formLogin -> formLogin.loginPage("/login")
                         .loginProcessingUrl("/login")
-                        .defaultSuccessUrl("/")
+                        .defaultSuccessUrl("/books")
                         .permitAll()
                 )
 
